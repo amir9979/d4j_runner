@@ -40,6 +40,9 @@ jobs:
           repository: amir9979/defects4j
           path: .
           fetch-depth: 0
+      
+      - run: cpanm --installdeps .
+      - run: ./init.sh
 
       - name: initialize-project-and-collect-issues
         run: ./initialize-project-and-collect-issues.pl -p Codec -n commons-codec -w bug-mining -r https://github.com/apache/commons-codec.git -g jira -t CODEC -e "/(CODEC-\d+)/mi"
