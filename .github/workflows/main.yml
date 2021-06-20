@@ -48,6 +48,24 @@ jobs:
         working-directory: ./framework/bug-mining
       
       
+      - name: initialize-revisions
+        run: ./initialize-revisions.pl -p Codec -w bug-mining 
+        working-directory: ./framework/bug-mining
+
+      - name: analyze-project
+        run: ./initialize-project-and-collect-issues.pl -p Codec -w bug-mining -g jira -t CODEC
+        working-directory: ./framework/bug-mining
+
+      - name: get-trigger
+        run: ./get-trigger.pl -p Codec -w bug-mining 
+        working-directory: ./framework/bug-mining
+
+      - name: get-metadata
+        run: ./get-metadata.pl -p Codec -w bug-mining 
+        working-directory: ./framework/bug-mining
+
+
+      
       - name: Upload repository_data
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
