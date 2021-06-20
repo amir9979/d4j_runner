@@ -49,24 +49,25 @@ jobs:
       - run: ./init.sh
 
       - name: initialize-project-and-collect-issues
-        run: ./initialize-project-and-collect-issues.pl -p Codec -n commons-codec -w bug-mining -r https://github.com/apache/commons-codec.git -g jira -t CODEC -e "/(CODEC-\d+)/mi"
+        run: ./initialize-project-and-collect-issues.pl -p Lang -n commons-lang -w bug-mining -r https://github.com/apache/commons-lang.git -g jira -t LANG -e "/(LANG-\d+)/mi"
         working-directory: ./framework/bug-mining
       
       
       - name: initialize-revisions
-        run: ./initialize-revisions.pl -p Codec -w bug-mining 
+        run: ./initialize-revisions.pl -p Lang -w bug-mining 
         working-directory: ./framework/bug-mining
 
       - name: analyze-project
-        run: ./analyze-project.pl -p Codec -w bug-mining -g jira -t CODEC
+        run: ./analyze-project.pl -p Lang -w bug-mining -g jira -t LANG
         working-directory: ./framework/bug-mining
 
+
       - name: get-trigger
-        run: ./get-trigger.pl -p Codec -w bug-mining 
+        run: ./get-trigger.pl -p Lang -w bug-mining 
         working-directory: ./framework/bug-mining
 
       - name: get-metadata
-        run: ./get-metadata.pl -p Codec -w bug-mining 
+        run: ./get-metadata.pl -p Lang -w bug-mining 
         working-directory: ./framework/bug-mining
 
 
