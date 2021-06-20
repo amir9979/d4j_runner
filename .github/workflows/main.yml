@@ -54,7 +54,7 @@ jobs:
         working-directory: ./framework/bug-mining
 
       - name: analyze-project
-        run: ./initialize-project-and-collect-issues.pl -p Codec -w bug-mining -g jira -t CODEC
+        run: ./analyze-project.pl -p Codec -w bug-mining -g jira -t CODEC
         working-directory: ./framework/bug-mining
 
       - name: get-trigger
