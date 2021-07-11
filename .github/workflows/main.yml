@@ -54,7 +54,7 @@ jobs:
       
       
       - name: initialize-revisions
-        run: ./initialize-revisions.pl -p Lang -w bug-mining -i 0
+        run: ./initialize-revisions.pl -p Lang -w bug-mining -e 0
         working-directory: ./framework/bug-mining
 
       - name: analyze-project
