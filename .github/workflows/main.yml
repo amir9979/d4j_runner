@@ -54,20 +54,20 @@ jobs:
       
       
       - name: initialize-revisions
-        run: ./initialize-revisions.pl -p Lang -w bug-mining -i 0
+        run: ./initialize-revisions.pl -p Lang -w bug-mining -i 1
         working-directory: ./framework/bug-mining
 
       - name: analyze-project
-        run: ./analyze-project.pl -p Lang -w bug-mining -g jira -t LANG -i 0
+        run: ./analyze-project.pl -p Lang -w bug-mining -g jira -t LANG -i 1
         working-directory: ./framework/bug-mining
 
 
       - name: get-trigger
-        run: ./get-trigger.pl -p Lang -w bug-mining -i 0
+        run: ./get-trigger.pl -p Lang -w bug-mining -i 1
         working-directory: ./framework/bug-mining
 
       - name: get-metadata
-        run: ./get-metadata.pl -p Lang -w bug-mining -i 0
+        run: ./get-metadata.pl -p Lang -w bug-mining -i 1
         working-directory: ./framework/bug-mining
 
 
