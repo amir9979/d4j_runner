@@ -64,24 +64,23 @@ jobs:
         run: ./initialize-revisions.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}  -i ${{ matrix.bug_ind }} 
         working-directory: ./framework/bug-mining
 
-      - name: analyze-project
-        run: ./analyze-project.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}  -g jira -t LANG -i ${{ matrix.bug_ind }} 
-        working-directory: ./framework/bug-mining
+#       - name: analyze-project
+#         run: ./analyze-project.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}  -g jira -t LANG -i ${{ matrix.bug_ind }} 
+#         working-directory: ./framework/bug-mining
 
 
-      - name: get-trigger
-        run: ./get-trigger.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}
-        working-directory: ./framework/bug-mining
+#       - name: get-trigger
+#         run: ./get-trigger.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}
+#         working-directory: ./framework/bug-mining
 
-      - name: get-metadata
-        run: ./get-metadata.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}
-        working-directory: ./framework/bug-mining
+#       - name: get-metadata
+#         run: ./get-metadata.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}
+#         working-directory: ./framework/bug-mining
 
 
       - name: delete repo
         if: ${{always()}}
-        run: rm -rf ./bug-mining_${{ matrix.bug_ind}}\project_repos
-        working-directory: ./framework/bug-mining
+        run: rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
       
       - name: Upload bug-mining
         if: ${{ always() }}
