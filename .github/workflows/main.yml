@@ -80,7 +80,7 @@ jobs:
 
       - name: delete repo
         if: ${{always()}}
-        run: rm -rf bug-mining_${{ matrix.bug_ind}}\project_repos
+        run: rm -rf ./bug-mining_${{ matrix.bug_ind}}\project_repos
         working-directory: ./framework/bug-mining
       
       - name: Upload bug-mining
