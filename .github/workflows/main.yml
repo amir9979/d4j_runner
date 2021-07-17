@@ -78,15 +78,15 @@ jobs:
         working-directory: ./framework/bug-mining
 
 
-      - name: delete repo
-        if: ${{always()}}
-        run: |
-            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
-            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
-            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
-            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
-            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
-            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
+#       - name: delete repo
+#         if: ${{always()}}
+#         run: |
+#             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
+#             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
+#             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
+#             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
+#             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
+#             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
       
       - name: Upload bug-mining
         if: ${{ always() }}
