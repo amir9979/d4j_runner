@@ -68,13 +68,13 @@ jobs:
         working-directory: ./framework/bug-mining
 
 
-#       - name: get-trigger
-#         run: ./get-trigger.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}
-#         working-directory: ./framework/bug-mining
+      - name: get-trigger
+        run: ./get-trigger.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
 
-#       - name: get-metadata
-#         run: ./get-metadata.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}
-#         working-directory: ./framework/bug-mining
+      - name: get-metadata
+        run: ./get-metadata.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
 
 
       - name: delete repo
