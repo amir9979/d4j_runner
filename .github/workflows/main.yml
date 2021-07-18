@@ -99,9 +99,6 @@ jobs:
       - name: check temp vers
         run: ls -R /tmp/versions
       
-      - name: check temp
-        run: ls -R /tmp
-      
       - name: Upload version
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
