@@ -67,7 +67,6 @@ jobs:
         run: ./analyze-project.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}  -g jira -t LANG -i ${{ matrix.bug_ind }} 
         working-directory: ./framework/bug-mining
 
-
       - name: get-trigger
         run: ./get-trigger.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}
         working-directory: ./framework/bug-mining
@@ -76,6 +75,9 @@ jobs:
         run: ./get-metadata.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}
         working-directory: ./framework/bug-mining
 
+      - name: trace
+        run: ./tracer.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
 
       - name: delete repo
         if: ${{always()}}
