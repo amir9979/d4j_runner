@@ -75,13 +75,13 @@ jobs:
         run: ./get-metadata.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}
         working-directory: ./framework/bug-mining
 
-      - name: chmod
-        run: chmod 777 ./tracer.pl
-        working-directory: ./framework/bug-mining
+#       - name: chmod
+#         run: chmod 777 ./tracer.pl
+#         working-directory: ./framework/bug-mining
 
-      - name: trace
-        run: ./tracer.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}
-        working-directory: ./framework/bug-mining
+#       - name: trace
+#         run: ./tracer.pl -p Lang -w bug-mining_${{ matrix.bug_ind }}
+#         working-directory: ./framework/bug-mining
 
       - name: delete repo
         if: ${{always()}}
