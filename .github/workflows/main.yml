@@ -127,6 +127,9 @@ jobs:
             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/javadiff
             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/sfl
             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/tracing
+            rm -rf ./framework/bug-mining/javadiff
+            rm -rf ./framework/bug-mining/sfl
+            rm -rf ./framework/bug-mining/tracing
       
       - name: Upload bug-mining
         if: ${{ always() }}
