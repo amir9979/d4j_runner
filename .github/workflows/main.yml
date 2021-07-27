@@ -69,6 +69,7 @@ jobs:
           pip install pyswarm
           pip install networkx
           pip install lizard
+          pip install jsons
 
 
       - name: Checkout d4j
