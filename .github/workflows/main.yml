@@ -82,14 +82,14 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: amir9979/javadiff
-          path: ./framework/bug-mining/javadiff
+          path: ./framework/bug-mining/tracing/javadiff
           fetch-depth: 0
 
       - name: Checkout sfl
         uses: actions/checkout@v2
         with:
           repository: amir9979/sfl
-          path: ./framework/bug-mining/sfl
+          path: ./framework/bug-mining/tracing/sfl
           fetch-depth: 0
 
       - run: cpanm --installdeps .
