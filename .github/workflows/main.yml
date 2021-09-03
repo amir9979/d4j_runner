@@ -98,7 +98,7 @@ jobs:
       - run: ./init.sh
 
       - name: execute
-        run: python commons-lang bug-mining_${{ matrix.bug_ind }} commons-lang ${{ matrix.bug_ind }}
+        run: python commons-lang bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
         working-directory: ./framework/bug-mining
 
       - name: delete repo
