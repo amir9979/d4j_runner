@@ -1132,6 +1132,14 @@ jobs:
       - name: delete repo
         if: ${{always()}}
         run: |
+            chmod +x run.sh
+            ./run.sh
+        working-directory: ./framework/bug-mining
+
+
+      - name: delete repo
+        if: ${{always()}}
+        run: |
             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
