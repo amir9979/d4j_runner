@@ -11,7 +11,8 @@ on:
 #     branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  issues:
+    types: [opened]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -98,7 +99,7 @@ jobs:
       - run: ./init.sh
 
       - name: execute
-        run: python wrapper.py commons-lang bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
         working-directory: ./framework/bug-mining
 
       - name: delete repo
