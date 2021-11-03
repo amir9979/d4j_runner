@@ -85,8 +85,15 @@ jobs:
       - run: cpanm --installdeps .
       - run: ./init.sh
 
-      - name: execute
+      - name: get_runner
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
         working-directory: ./framework/bug-mining
 
       - name: delete repo
@@ -189,8 +196,15 @@ jobs:
       - run: cpanm --installdeps .
       - run: ./init.sh
 
-      - name: execute
+      - name: get_runner
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
         working-directory: ./framework/bug-mining
 
       - name: delete repo
@@ -293,8 +307,15 @@ jobs:
       - run: cpanm --installdeps .
       - run: ./init.sh
 
-      - name: execute
+      - name: get_runner
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
         working-directory: ./framework/bug-mining
 
       - name: delete repo
@@ -397,8 +418,15 @@ jobs:
       - run: cpanm --installdeps .
       - run: ./init.sh
 
-      - name: execute
+      - name: get_runner
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
         working-directory: ./framework/bug-mining
 
       - name: delete repo
@@ -501,8 +529,15 @@ jobs:
       - run: cpanm --installdeps .
       - run: ./init.sh
 
-      - name: execute
+      - name: get_runner
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
         working-directory: ./framework/bug-mining
 
       - name: delete repo
@@ -605,8 +640,15 @@ jobs:
       - run: cpanm --installdeps .
       - run: ./init.sh
 
-      - name: execute
+      - name: get_runner
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
         working-directory: ./framework/bug-mining
 
       - name: delete repo
@@ -709,8 +751,15 @@ jobs:
       - run: cpanm --installdeps .
       - run: ./init.sh
 
-      - name: execute
+      - name: get_runner
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
         working-directory: ./framework/bug-mining
 
       - name: delete repo
@@ -813,8 +862,15 @@ jobs:
       - run: cpanm --installdeps .
       - run: ./init.sh
 
-      - name: execute
+      - name: get_runner
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
         working-directory: ./framework/bug-mining
 
       - name: delete repo
@@ -917,8 +973,15 @@ jobs:
       - run: cpanm --installdeps .
       - run: ./init.sh
 
-      - name: execute
+      - name: get_runner
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
         working-directory: ./framework/bug-mining
 
       - name: delete repo
@@ -1021,8 +1084,15 @@ jobs:
       - run: cpanm --installdeps .
       - run: ./init.sh
 
-      - name: execute
+      - name: get_runner
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
         working-directory: ./framework/bug-mining
 
       - name: delete repo
@@ -1125,11 +1195,11 @@ jobs:
       - run: cpanm --installdeps .
       - run: ./init.sh
 
-      - name: execute
+      - name: get_runner
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
         working-directory: ./framework/bug-mining
 
-      - name: delete repo
+      - name: exec
         if: ${{always()}}
         run: |
             chmod +x run.sh
