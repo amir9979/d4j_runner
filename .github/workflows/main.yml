@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        bug_ind: [19]
+        bug_ind: [0, 1]
 
 
 
@@ -123,7 +123,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        bug_ind: [19]
+        bug_ind: [2,3]
 
 
 
@@ -234,7 +234,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        bug_ind: [19]
+        bug_ind: [4,5]
 
 
 
@@ -345,7 +345,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        bug_ind: [19]
+        bug_ind: [6,7]
 
 
 
@@ -456,7 +456,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        bug_ind: [19]
+        bug_ind: [8,9]
 
 
 
@@ -567,7 +567,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        bug_ind: [19]
+        bug_ind: [10,11]
 
 
 
@@ -678,7 +678,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        bug_ind: [19]
+        bug_ind: [12,13]
 
 
 
@@ -789,7 +789,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        bug_ind: [19]
+        bug_ind: [14,15]
 
 
 
@@ -900,7 +900,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        bug_ind: [19]
+        bug_ind: [16,17]
 
 
 
@@ -1011,7 +1011,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        bug_ind: [19]
+        bug_ind: [18,19]
 
 
 
@@ -1122,7 +1122,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        bug_ind: [19]
+        bug_ind: [20,21]
 
 
 
