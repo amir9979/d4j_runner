@@ -1,6 +1,9 @@
 name: lang_0
 on:
   workflow_dispatch:
+    inputs:
+        repo_name:
+          description: 'commons-lang'
 
 
 jobs:
@@ -84,7 +87,7 @@ jobs:
       - run: ./init.sh
 
       - name: get_runner
-        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        run: python wrapper.py  ${{github.event.inputs.repo_name}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
         working-directory: ./framework/bug-mining
 
       - name: exec
@@ -195,7 +198,7 @@ jobs:
       - run: ./init.sh
 
       - name: get_runner
-        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        run: python wrapper.py  ${{github.event.inputs.repo_name}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
         working-directory: ./framework/bug-mining
 
       - name: exec
