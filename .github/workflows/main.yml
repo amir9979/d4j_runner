@@ -14,8 +14,6 @@ jobs:
       matrix:
         bug_ind: [0, 1]
 
-
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
