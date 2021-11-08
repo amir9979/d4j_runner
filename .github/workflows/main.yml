@@ -3,7 +3,9 @@ on:
   workflow_dispatch:
     inputs:
         repo_name:
-          description: 'commons-lang'
+          description: 'name of repository'
+          required: true
+          default: 'commons-lang'
 
 
 jobs:
