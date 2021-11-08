@@ -111,7 +111,6 @@ jobs:
             rm -rf ./framework/bug-mining/tracing
       
       - name: Upload bug-mining
-        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           # Artifact name
@@ -222,7 +221,6 @@ jobs:
             rm -rf ./framework/bug-mining/tracing
       
       - name: Upload bug-mining
-        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           # Artifact name
