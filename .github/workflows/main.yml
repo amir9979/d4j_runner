@@ -92,7 +92,6 @@ jobs:
         run: chmod +x run.sh
         working-directory: ./framework/bug-mining
 
-
       - name: exec
         if: ${{always()}}
         run: ./run.sh
