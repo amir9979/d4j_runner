@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        bug_ind: [7]
+        bug_ind: [0, 1]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -113,1115 +113,1114 @@ jobs:
           name: bug-mining
           # A file, directory or wildcard pattern that describes what to upload
           path: ./framework/bug-mining
-#  build2:
-#    continue-on-error: true
-#    if: always()
-#    runs-on: ubuntu-latest
-#    
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        bug_ind: [2,3]
-#
-#
-#
-#    # Steps represent a sequence of tasks that will be executed as part of the job
-#    steps:
-#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#      - uses: actions/checkout@v2
-#      - name: Run a multi-line script
-#        run: |
-#          sudo apt update
-#          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
-#
-#      - uses: shogo82148/actions-setup-perl@v1
-#        with:
-#          perl-version: '5.34'
-#
-#      - name: Set up JDK 1.8
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 1.8
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: 3.7
-#
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          pip install junitparser
-#          pip install networkx
-#          pip install pytest 
-#          pip install gitpython
-#          pip install jira
-#          pip install termcolor 
-#          pip install openpyxl  
-#          pip install javalang
-#          pip install pathlib
-#          pip install junitparser
-#          pip install numpy
-#          pip install sklearn
-#          pip install pandas
-#          pip install pyswarm
-#          pip install networkx
-#          pip install lizard
-#          pip install jsons
-#
-#
-#      - name: Checkout d4j
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/defects4j
-#          path: .
-#          fetch-depth: 0
-#      
-#      - name: Checkout javadiff
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/javadiff
-#          path: ./framework/bug-mining/tracing/javadiff
-#          fetch-depth: 0
-#
-#      - name: Checkout sfl
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/sfl
-#          path: ./framework/bug-mining/tracing/sfl
-#          fetch-depth: 0
-#
-#      - run: cpanm --installdeps .
-#      - run: ./init.sh
-#
-#      - name: get_runner
-#        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
-#        working-directory: ./framework/bug-mining
-#
-#      - name: exec
-#        if: ${{always()}}
-#        run: |
-#            chmod +x run.sh
-#            ./run.sh
-#        working-directory: ./framework/bug-mining
-#
-#      - name: delete repo
-#        if: ${{always()}}
-#        run: |
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
-#            rm -rf ./framework/bug-mining/tracing
-#      
-#      - name: Upload bug-mining
-#        if: ${{ always() }}
-#        uses: actions/upload-artifact@v2
-#        with:
-#          # Artifact name
-#          name: bug-mining
-#          # A file, directory or wildcard pattern that describes what to upload
-#          path: ./framework/bug-mining
-#  build3:
-#    continue-on-error: true
-#    if: always()
-#    runs-on: ubuntu-latest
-#    
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        bug_ind: [4,5]
-#
-#
-#
-#    # Steps represent a sequence of tasks that will be executed as part of the job
-#    steps:
-#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#      - uses: actions/checkout@v2
-#      - name: Run a multi-line script
-#        run: |
-#          sudo apt update
-#          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
-#
-#      - uses: shogo82148/actions-setup-perl@v1
-#        with:
-#          perl-version: '5.34'
-#
-#      - name: Set up JDK 1.8
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 1.8
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: 3.7
-#
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          pip install junitparser
-#          pip install networkx
-#          pip install pytest 
-#          pip install gitpython
-#          pip install jira
-#          pip install termcolor 
-#          pip install openpyxl  
-#          pip install javalang
-#          pip install pathlib
-#          pip install junitparser
-#          pip install numpy
-#          pip install sklearn
-#          pip install pandas
-#          pip install pyswarm
-#          pip install networkx
-#          pip install lizard
-#          pip install jsons
-#
-#
-#      - name: Checkout d4j
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/defects4j
-#          path: .
-#          fetch-depth: 0
-#      
-#      - name: Checkout javadiff
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/javadiff
-#          path: ./framework/bug-mining/tracing/javadiff
-#          fetch-depth: 0
-#
-#      - name: Checkout sfl
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/sfl
-#          path: ./framework/bug-mining/tracing/sfl
-#          fetch-depth: 0
-#
-#      - run: cpanm --installdeps .
-#      - run: ./init.sh
-#
-#      - name: get_runner
-#        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
-#        working-directory: ./framework/bug-mining
-#
-#      - name: exec
-#        if: ${{always()}}
-#        run: |
-#            chmod +x run.sh
-#            ./run.sh
-#        working-directory: ./framework/bug-mining
-#
-#      - name: delete repo
-#        if: ${{always()}}
-#        run: |
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
-#            rm -rf ./framework/bug-mining/tracing
-#      
-#      - name: Upload bug-mining
-#        if: ${{ always() }}
-#        uses: actions/upload-artifact@v2
-#        with:
-#          # Artifact name
-#          name: bug-mining
-#          # A file, directory or wildcard pattern that describes what to upload
-#          path: ./framework/bug-mining
-#  build4:
-#    continue-on-error: true
-#    if: always()
-#    runs-on: ubuntu-latest
-#    
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        bug_ind: [6,7]
-#
-#
-#
-#    # Steps represent a sequence of tasks that will be executed as part of the job
-#    steps:
-#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#      - uses: actions/checkout@v2
-#      - name: Run a multi-line script
-#        run: |
-#          sudo apt update
-#          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
-#
-#      - uses: shogo82148/actions-setup-perl@v1
-#        with:
-#          perl-version: '5.34'
-#
-#      - name: Set up JDK 1.8
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 1.8
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: 3.7
-#
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          pip install junitparser
-#          pip install networkx
-#          pip install pytest 
-#          pip install gitpython
-#          pip install jira
-#          pip install termcolor 
-#          pip install openpyxl  
-#          pip install javalang
-#          pip install pathlib
-#          pip install junitparser
-#          pip install numpy
-#          pip install sklearn
-#          pip install pandas
-#          pip install pyswarm
-#          pip install networkx
-#          pip install lizard
-#          pip install jsons
-#
-#
-#      - name: Checkout d4j
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/defects4j
-#          path: .
-#          fetch-depth: 0
-#      
-#      - name: Checkout javadiff
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/javadiff
-#          path: ./framework/bug-mining/tracing/javadiff
-#          fetch-depth: 0
-#
-#      - name: Checkout sfl
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/sfl
-#          path: ./framework/bug-mining/tracing/sfl
-#          fetch-depth: 0
-#
-#      - run: cpanm --installdeps .
-#      - run: ./init.sh
-#
-#      - name: get_runner
-#        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
-#        working-directory: ./framework/bug-mining
-#
-#      - name: exec
-#        if: ${{always()}}
-#        run: |
-#            chmod +x run.sh
-#            ./run.sh
-#        working-directory: ./framework/bug-mining
-#
-#      - name: delete repo
-#        if: ${{always()}}
-#        run: |
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
-#            rm -rf ./framework/bug-mining/tracing
-#      
-#      - name: Upload bug-mining
-#        if: ${{ always() }}
-#        uses: actions/upload-artifact@v2
-#        with:
-#          # Artifact name
-#          name: bug-mining
-#          # A file, directory or wildcard pattern that describes what to upload
-#          path: ./framework/bug-mining
-#  build5:
-#    continue-on-error: true
-#    if: always()
-#    runs-on: ubuntu-latest
-#    
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        bug_ind: [8,9]
-#
-#
-#
-#    # Steps represent a sequence of tasks that will be executed as part of the job
-#    steps:
-#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#      - uses: actions/checkout@v2
-#      - name: Run a multi-line script
-#        run: |
-#          sudo apt update
-#          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
-#
-#      - uses: shogo82148/actions-setup-perl@v1
-#        with:
-#          perl-version: '5.34'
-#
-#      - name: Set up JDK 1.8
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 1.8
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: 3.7
-#
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          pip install junitparser
-#          pip install networkx
-#          pip install pytest 
-#          pip install gitpython
-#          pip install jira
-#          pip install termcolor 
-#          pip install openpyxl  
-#          pip install javalang
-#          pip install pathlib
-#          pip install junitparser
-#          pip install numpy
-#          pip install sklearn
-#          pip install pandas
-#          pip install pyswarm
-#          pip install networkx
-#          pip install lizard
-#          pip install jsons
-#
-#
-#      - name: Checkout d4j
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/defects4j
-#          path: .
-#          fetch-depth: 0
-#      
-#      - name: Checkout javadiff
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/javadiff
-#          path: ./framework/bug-mining/tracing/javadiff
-#          fetch-depth: 0
-#
-#      - name: Checkout sfl
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/sfl
-#          path: ./framework/bug-mining/tracing/sfl
-#          fetch-depth: 0
-#
-#      - run: cpanm --installdeps .
-#      - run: ./init.sh
-#
-#      - name: get_runner
-#        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
-#        working-directory: ./framework/bug-mining
-#
-#      - name: exec
-#        if: ${{always()}}
-#        run: |
-#            chmod +x run.sh
-#            ./run.sh
-#        working-directory: ./framework/bug-mining
-#
-#      - name: delete repo
-#        if: ${{always()}}
-#        run: |
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
-#            rm -rf ./framework/bug-mining/tracing
-#      
-#      - name: Upload bug-mining
-#        if: ${{ always() }}
-#        uses: actions/upload-artifact@v2
-#        with:
-#          # Artifact name
-#          name: bug-mining
-#          # A file, directory or wildcard pattern that describes what to upload
-#          path: ./framework/bug-mining
-#  build6:
-#    continue-on-error: true
-#    if: always()
-#    runs-on: ubuntu-latest
-#    
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        bug_ind: [10,11]
-#
-#
-#
-#    # Steps represent a sequence of tasks that will be executed as part of the job
-#    steps:
-#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#      - uses: actions/checkout@v2
-#      - name: Run a multi-line script
-#        run: |
-#          sudo apt update
-#          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
-#
-#      - uses: shogo82148/actions-setup-perl@v1
-#        with:
-#          perl-version: '5.34'
-#
-#      - name: Set up JDK 1.8
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 1.8
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: 3.7
-#
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          pip install junitparser
-#          pip install networkx
-#          pip install pytest 
-#          pip install gitpython
-#          pip install jira
-#          pip install termcolor 
-#          pip install openpyxl  
-#          pip install javalang
-#          pip install pathlib
-#          pip install junitparser
-#          pip install numpy
-#          pip install sklearn
-#          pip install pandas
-#          pip install pyswarm
-#          pip install networkx
-#          pip install lizard
-#          pip install jsons
-#
-#
-#      - name: Checkout d4j
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/defects4j
-#          path: .
-#          fetch-depth: 0
-#      
-#      - name: Checkout javadiff
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/javadiff
-#          path: ./framework/bug-mining/tracing/javadiff
-#          fetch-depth: 0
-#
-#      - name: Checkout sfl
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/sfl
-#          path: ./framework/bug-mining/tracing/sfl
-#          fetch-depth: 0
-#
-#      - run: cpanm --installdeps .
-#      - run: ./init.sh
-#
-#      - name: get_runner
-#        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
-#        working-directory: ./framework/bug-mining
-#
-#      - name: exec
-#        if: ${{always()}}
-#        run: |
-#            chmod +x run.sh
-#            ./run.sh
-#        working-directory: ./framework/bug-mining
-#
-#      - name: delete repo
-#        if: ${{always()}}
-#        run: |
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
-#            rm -rf ./framework/bug-mining/tracing
-#      
-#      - name: Upload bug-mining
-#        if: ${{ always() }}
-#        uses: actions/upload-artifact@v2
-#        with:
-#          # Artifact name
-#          name: bug-mining
-#          # A file, directory or wildcard pattern that describes what to upload
-#          path: ./framework/bug-mining
-#  build7:
-#    continue-on-error: true
-#    if: always()
-#    runs-on: ubuntu-latest
-#    
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        bug_ind: [12,13]
-#
-#
-#
-#    # Steps represent a sequence of tasks that will be executed as part of the job
-#    steps:
-#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#      - uses: actions/checkout@v2
-#      - name: Run a multi-line script
-#        run: |
-#          sudo apt update
-#          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
-#
-#      - uses: shogo82148/actions-setup-perl@v1
-#        with:
-#          perl-version: '5.34'
-#
-#      - name: Set up JDK 1.8
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 1.8
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: 3.7
-#
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          pip install junitparser
-#          pip install networkx
-#          pip install pytest 
-#          pip install gitpython
-#          pip install jira
-#          pip install termcolor 
-#          pip install openpyxl  
-#          pip install javalang
-#          pip install pathlib
-#          pip install junitparser
-#          pip install numpy
-#          pip install sklearn
-#          pip install pandas
-#          pip install pyswarm
-#          pip install networkx
-#          pip install lizard
-#          pip install jsons
-#
-#
-#      - name: Checkout d4j
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/defects4j
-#          path: .
-#          fetch-depth: 0
-#      
-#      - name: Checkout javadiff
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/javadiff
-#          path: ./framework/bug-mining/tracing/javadiff
-#          fetch-depth: 0
-#
-#      - name: Checkout sfl
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/sfl
-#          path: ./framework/bug-mining/tracing/sfl
-#          fetch-depth: 0
-#
-#      - run: cpanm --installdeps .
-#      - run: ./init.sh
-#
-#      - name: get_runner
-#        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
-#        working-directory: ./framework/bug-mining
-#
-#      - name: exec
-#        if: ${{always()}}
-#        run: |
-#            chmod +x run.sh
-#            ./run.sh
-#        working-directory: ./framework/bug-mining
-#
-#      - name: delete repo
-#        if: ${{always()}}
-#        run: |
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
-#            rm -rf ./framework/bug-mining/tracing
-#      
-#      - name: Upload bug-mining
-#        if: ${{ always() }}
-#        uses: actions/upload-artifact@v2
-#        with:
-#          # Artifact name
-#          name: bug-mining
-#          # A file, directory or wildcard pattern that describes what to upload
-#          path: ./framework/bug-mining
-#  build8:
-#    continue-on-error: true
-#    if: always()
-#    runs-on: ubuntu-latest
-#    
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        bug_ind: [14,15]
-#
-#
-#
-#    # Steps represent a sequence of tasks that will be executed as part of the job
-#    steps:
-#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#      - uses: actions/checkout@v2
-#      - name: Run a multi-line script
-#        run: |
-#          sudo apt update
-#          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
-#
-#      - uses: shogo82148/actions-setup-perl@v1
-#        with:
-#          perl-version: '5.34'
-#
-#      - name: Set up JDK 1.8
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 1.8
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: 3.7
-#
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          pip install junitparser
-#          pip install networkx
-#          pip install pytest 
-#          pip install gitpython
-#          pip install jira
-#          pip install termcolor 
-#          pip install openpyxl  
-#          pip install javalang
-#          pip install pathlib
-#          pip install junitparser
-#          pip install numpy
-#          pip install sklearn
-#          pip install pandas
-#          pip install pyswarm
-#          pip install networkx
-#          pip install lizard
-#          pip install jsons
-#
-#
-#      - name: Checkout d4j
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/defects4j
-#          path: .
-#          fetch-depth: 0
-#      
-#      - name: Checkout javadiff
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/javadiff
-#          path: ./framework/bug-mining/tracing/javadiff
-#          fetch-depth: 0
-#
-#      - name: Checkout sfl
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/sfl
-#          path: ./framework/bug-mining/tracing/sfl
-#          fetch-depth: 0
-#
-#      - run: cpanm --installdeps .
-#      - run: ./init.sh
-#
-#      - name: get_runner
-#        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
-#        working-directory: ./framework/bug-mining
-#
-#      - name: exec
-#        if: ${{always()}}
-#        run: |
-#            chmod +x run.sh
-#            ./run.sh
-#        working-directory: ./framework/bug-mining
-#
-#      - name: delete repo
-#        if: ${{always()}}
-#        run: |
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
-#            rm -rf ./framework/bug-mining/tracing
-#      
-#      - name: Upload bug-mining
-#        if: ${{ always() }}
-#        uses: actions/upload-artifact@v2
-#        with:
-#          # Artifact name
-#          name: bug-mining
-#          # A file, directory or wildcard pattern that describes what to upload
-#          path: ./framework/bug-mining
-#  build9:
-#    continue-on-error: true
-#    if: always()
-#    runs-on: ubuntu-latest
-#    
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        bug_ind: [16,17]
-#
-#
-#
-#    # Steps represent a sequence of tasks that will be executed as part of the job
-#    steps:
-#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#      - uses: actions/checkout@v2
-#      - name: Run a multi-line script
-#        run: |
-#          sudo apt update
-#          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
-#
-#      - uses: shogo82148/actions-setup-perl@v1
-#        with:
-#          perl-version: '5.34'
-#
-#      - name: Set up JDK 1.8
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 1.8
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: 3.7
-#
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          pip install junitparser
-#          pip install networkx
-#          pip install pytest 
-#          pip install gitpython
-#          pip install jira
-#          pip install termcolor 
-#          pip install openpyxl  
-#          pip install javalang
-#          pip install pathlib
-#          pip install junitparser
-#          pip install numpy
-#          pip install sklearn
-#          pip install pandas
-#          pip install pyswarm
-#          pip install networkx
-#          pip install lizard
-#          pip install jsons
-#
-#
-#      - name: Checkout d4j
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/defects4j
-#          path: .
-#          fetch-depth: 0
-#      
-#      - name: Checkout javadiff
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/javadiff
-#          path: ./framework/bug-mining/tracing/javadiff
-#          fetch-depth: 0
-#
-#      - name: Checkout sfl
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/sfl
-#          path: ./framework/bug-mining/tracing/sfl
-#          fetch-depth: 0
-#
-#      - run: cpanm --installdeps .
-#      - run: ./init.sh
-#
-#      - name: get_runner
-#        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
-#        working-directory: ./framework/bug-mining
-#
-#      - name: exec
-#        if: ${{always()}}
-#        run: |
-#            chmod +x run.sh
-#            ./run.sh
-#        working-directory: ./framework/bug-mining
-#
-#      - name: delete repo
-#        if: ${{always()}}
-#        run: |
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
-#            rm -rf ./framework/bug-mining/tracing
-#      
-#      - name: Upload bug-mining
-#        if: ${{ always() }}
-#        uses: actions/upload-artifact@v2
-#        with:
-#          # Artifact name
-#          name: bug-mining
-#          # A file, directory or wildcard pattern that describes what to upload
-#          path: ./framework/bug-mining
-#  build10:
-#    continue-on-error: true
-#    if: always()
-#    runs-on: ubuntu-latest
-#    
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        bug_ind: [18,19]
-#
-#
-#
-#    # Steps represent a sequence of tasks that will be executed as part of the job
-#    steps:
-#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#      - uses: actions/checkout@v2
-#      - name: Run a multi-line script
-#        run: |
-#          sudo apt update
-#          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
-#
-#      - uses: shogo82148/actions-setup-perl@v1
-#        with:
-#          perl-version: '5.34'
-#
-#      - name: Set up JDK 1.8
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 1.8
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: 3.7
-#
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          pip install junitparser
-#          pip install networkx
-#          pip install pytest 
-#          pip install gitpython
-#          pip install jira
-#          pip install termcolor 
-#          pip install openpyxl  
-#          pip install javalang
-#          pip install pathlib
-#          pip install junitparser
-#          pip install numpy
-#          pip install sklearn
-#          pip install pandas
-#          pip install pyswarm
-#          pip install networkx
-#          pip install lizard
-#          pip install jsons
-#
-#
-#      - name: Checkout d4j
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/defects4j
-#          path: .
-#          fetch-depth: 0
-#      
-#      - name: Checkout javadiff
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/javadiff
-#          path: ./framework/bug-mining/tracing/javadiff
-#          fetch-depth: 0
-#
-#      - name: Checkout sfl
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/sfl
-#          path: ./framework/bug-mining/tracing/sfl
-#          fetch-depth: 0
-#
-#      - run: cpanm --installdeps .
-#      - run: ./init.sh
-#
-#      - name: get_runner
-#        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
-#        working-directory: ./framework/bug-mining
-#
-#      - name: exec
-#        if: ${{always()}}
-#        run: |
-#            chmod +x run.sh
-#            ./run.sh
-#        working-directory: ./framework/bug-mining
-#
-#      - name: delete repo
-#        if: ${{always()}}
-#        run: |
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
-#            rm -rf ./framework/bug-mining/tracing
-#      
-#      - name: Upload bug-mining
-#        if: ${{ always() }}
-#        uses: actions/upload-artifact@v2
-#        with:
-#          # Artifact name
-#          name: bug-mining
-#          # A file, directory or wildcard pattern that describes what to upload
-#          path: ./framework/bug-mining
-#  build11:
-#    continue-on-error: true
-#    if: always()
-#    runs-on: ubuntu-latest
-#    
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        bug_ind: [20,21]
-#
-#
-#
-#    # Steps represent a sequence of tasks that will be executed as part of the job
-#    steps:
-#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#      - uses: actions/checkout@v2
-#      - name: Run a multi-line script
-#        run: |
-#          sudo apt update
-#          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
-#
-#      - uses: shogo82148/actions-setup-perl@v1
-#        with:
-#          perl-version: '5.34'
-#
-#      - name: Set up JDK 1.8
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 1.8
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: 3.7
-#
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          pip install junitparser
-#          pip install networkx
-#          pip install pytest 
-#          pip install gitpython
-#          pip install jira
-#          pip install termcolor 
-#          pip install openpyxl  
-#          pip install javalang
-#          pip install pathlib
-#          pip install junitparser
-#          pip install numpy
-#          pip install sklearn
-#          pip install pandas
-#          pip install pyswarm
-#          pip install networkx
-#          pip install lizard
-#          pip install jsons
-#
-#
-#      - name: Checkout d4j
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/defects4j
-#          path: .
-#          fetch-depth: 0
-#      
-#      - name: Checkout javadiff
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/javadiff
-#          path: ./framework/bug-mining/tracing/javadiff
-#          fetch-depth: 0
-#
-#      - name: Checkout sfl
-#        uses: actions/checkout@v2
-#        with:
-#          repository: amir9979/sfl
-#          path: ./framework/bug-mining/tracing/sfl
-#          fetch-depth: 0
-#
-#      - run: cpanm --installdeps .
-#      - run: ./init.sh
-#
-#      - name: get_runner
-#        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
-#        working-directory: ./framework/bug-mining
-#
-#      - name: exec
-#        if: ${{always()}}
-#        run: |
-#            chmod +x run.sh
-#            ./run.sh
-#        working-directory: ./framework/bug-mining
-#
-#
-#      - name: delete repo
-#        if: ${{always()}}
-#        run: |
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
-#            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
-#            rm -rf ./framework/bug-mining/tracing
-#      
-#      - name: Upload bug-mining
-#        if: ${{ always() }}
-#        uses: actions/upload-artifact@v2
-#        with:
-#          # Artifact name
-#          name: bug-mining
-#          # A file, directory or wildcard pattern that describes what to upload
-#          path: ./framework/bug-mining
-#
+  build2:
+    continue-on-error: true
+    if: always()
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        bug_ind: [2,3]
+
+
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Run a multi-line script
+        run: |
+          sudo apt update
+          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
+
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: '5.34'
+
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install junitparser
+          pip install networkx
+          pip install pytest 
+          pip install gitpython
+          pip install jira
+          pip install termcolor 
+          pip install openpyxl  
+          pip install javalang
+          pip install pathlib
+          pip install junitparser
+          pip install numpy
+          pip install sklearn
+          pip install pandas
+          pip install pyswarm
+          pip install networkx
+          pip install lizard
+          pip install jsons
+
+
+      - name: Checkout d4j
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/defects4j
+          path: .
+          fetch-depth: 0
+      
+      - name: Checkout javadiff
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/javadiff
+          path: ./framework/bug-mining/tracing/javadiff
+          fetch-depth: 0
+
+      - name: Checkout sfl
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/sfl
+          path: ./framework/bug-mining/tracing/sfl
+          fetch-depth: 0
+
+      - run: cpanm --installdeps .
+      - run: ./init.sh
+
+      - name: get_runner
+        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
+        working-directory: ./framework/bug-mining
+
+      - name: delete repo
+        if: ${{always()}}
+        run: |
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
+            rm -rf ./framework/bug-mining/tracing
+      
+      - name: Upload bug-mining
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          # Artifact name
+          name: bug-mining
+          # A file, directory or wildcard pattern that describes what to upload
+          path: ./framework/bug-mining
+  build3:
+    continue-on-error: true
+    if: always()
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        bug_ind: [4,5]
+
+
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Run a multi-line script
+        run: |
+          sudo apt update
+          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
+
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: '5.34'
+
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install junitparser
+          pip install networkx
+          pip install pytest 
+          pip install gitpython
+          pip install jira
+          pip install termcolor 
+          pip install openpyxl  
+          pip install javalang
+          pip install pathlib
+          pip install junitparser
+          pip install numpy
+          pip install sklearn
+          pip install pandas
+          pip install pyswarm
+          pip install networkx
+          pip install lizard
+          pip install jsons
+
+
+      - name: Checkout d4j
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/defects4j
+          path: .
+          fetch-depth: 0
+      
+      - name: Checkout javadiff
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/javadiff
+          path: ./framework/bug-mining/tracing/javadiff
+          fetch-depth: 0
+
+      - name: Checkout sfl
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/sfl
+          path: ./framework/bug-mining/tracing/sfl
+          fetch-depth: 0
+
+      - run: cpanm --installdeps .
+      - run: ./init.sh
+
+      - name: get_runner
+        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
+        working-directory: ./framework/bug-mining
+
+      - name: delete repo
+        if: ${{always()}}
+        run: |
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
+            rm -rf ./framework/bug-mining/tracing
+      
+      - name: Upload bug-mining
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          # Artifact name
+          name: bug-mining
+          # A file, directory or wildcard pattern that describes what to upload
+          path: ./framework/bug-mining
+  build4:
+    continue-on-error: true
+    if: always()
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        bug_ind: [6,7]
+
+
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Run a multi-line script
+        run: |
+          sudo apt update
+          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
+
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: '5.34'
+
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install junitparser
+          pip install networkx
+          pip install pytest 
+          pip install gitpython
+          pip install jira
+          pip install termcolor 
+          pip install openpyxl  
+          pip install javalang
+          pip install pathlib
+          pip install junitparser
+          pip install numpy
+          pip install sklearn
+          pip install pandas
+          pip install pyswarm
+          pip install networkx
+          pip install lizard
+          pip install jsons
+
+
+      - name: Checkout d4j
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/defects4j
+          path: .
+          fetch-depth: 0
+      
+      - name: Checkout javadiff
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/javadiff
+          path: ./framework/bug-mining/tracing/javadiff
+          fetch-depth: 0
+
+      - name: Checkout sfl
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/sfl
+          path: ./framework/bug-mining/tracing/sfl
+          fetch-depth: 0
+
+      - run: cpanm --installdeps .
+      - run: ./init.sh
+
+      - name: get_runner
+        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
+        working-directory: ./framework/bug-mining
+
+      - name: delete repo
+        if: ${{always()}}
+        run: |
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
+            rm -rf ./framework/bug-mining/tracing
+      
+      - name: Upload bug-mining
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          # Artifact name
+          name: bug-mining
+          # A file, directory or wildcard pattern that describes what to upload
+          path: ./framework/bug-mining
+  build5:
+    continue-on-error: true
+    if: always()
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        bug_ind: [8,9]
+
+
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Run a multi-line script
+        run: |
+          sudo apt update
+          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
+
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: '5.34'
+
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install junitparser
+          pip install networkx
+          pip install pytest 
+          pip install gitpython
+          pip install jira
+          pip install termcolor 
+          pip install openpyxl  
+          pip install javalang
+          pip install pathlib
+          pip install junitparser
+          pip install numpy
+          pip install sklearn
+          pip install pandas
+          pip install pyswarm
+          pip install networkx
+          pip install lizard
+          pip install jsons
+
+
+      - name: Checkout d4j
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/defects4j
+          path: .
+          fetch-depth: 0
+      
+      - name: Checkout javadiff
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/javadiff
+          path: ./framework/bug-mining/tracing/javadiff
+          fetch-depth: 0
+
+      - name: Checkout sfl
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/sfl
+          path: ./framework/bug-mining/tracing/sfl
+          fetch-depth: 0
+
+      - run: cpanm --installdeps .
+      - run: ./init.sh
+
+      - name: get_runner
+        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
+        working-directory: ./framework/bug-mining
+
+      - name: delete repo
+        if: ${{always()}}
+        run: |
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
+            rm -rf ./framework/bug-mining/tracing
+      
+      - name: Upload bug-mining
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          # Artifact name
+          name: bug-mining
+          # A file, directory or wildcard pattern that describes what to upload
+          path: ./framework/bug-mining
+  build6:
+    continue-on-error: true
+    if: always()
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        bug_ind: [10,11]
+
+
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Run a multi-line script
+        run: |
+          sudo apt update
+          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
+
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: '5.34'
+
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install junitparser
+          pip install networkx
+          pip install pytest 
+          pip install gitpython
+          pip install jira
+          pip install termcolor 
+          pip install openpyxl  
+          pip install javalang
+          pip install pathlib
+          pip install junitparser
+          pip install numpy
+          pip install sklearn
+          pip install pandas
+          pip install pyswarm
+          pip install networkx
+          pip install lizard
+          pip install jsons
+
+
+      - name: Checkout d4j
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/defects4j
+          path: .
+          fetch-depth: 0
+      
+      - name: Checkout javadiff
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/javadiff
+          path: ./framework/bug-mining/tracing/javadiff
+          fetch-depth: 0
+
+      - name: Checkout sfl
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/sfl
+          path: ./framework/bug-mining/tracing/sfl
+          fetch-depth: 0
+
+      - run: cpanm --installdeps .
+      - run: ./init.sh
+
+      - name: get_runner
+        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
+        working-directory: ./framework/bug-mining
+
+      - name: delete repo
+        if: ${{always()}}
+        run: |
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
+            rm -rf ./framework/bug-mining/tracing
+      
+      - name: Upload bug-mining
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          # Artifact name
+          name: bug-mining
+          # A file, directory or wildcard pattern that describes what to upload
+          path: ./framework/bug-mining
+  build7:
+    continue-on-error: true
+    if: always()
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        bug_ind: [12,13]
+
+
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Run a multi-line script
+        run: |
+          sudo apt update
+          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
+
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: '5.34'
+
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install junitparser
+          pip install networkx
+          pip install pytest 
+          pip install gitpython
+          pip install jira
+          pip install termcolor 
+          pip install openpyxl  
+          pip install javalang
+          pip install pathlib
+          pip install junitparser
+          pip install numpy
+          pip install sklearn
+          pip install pandas
+          pip install pyswarm
+          pip install networkx
+          pip install lizard
+          pip install jsons
+
+
+      - name: Checkout d4j
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/defects4j
+          path: .
+          fetch-depth: 0
+      
+      - name: Checkout javadiff
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/javadiff
+          path: ./framework/bug-mining/tracing/javadiff
+          fetch-depth: 0
+
+      - name: Checkout sfl
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/sfl
+          path: ./framework/bug-mining/tracing/sfl
+          fetch-depth: 0
+
+      - run: cpanm --installdeps .
+      - run: ./init.sh
+
+      - name: get_runner
+        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
+        working-directory: ./framework/bug-mining
+
+      - name: delete repo
+        if: ${{always()}}
+        run: |
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
+            rm -rf ./framework/bug-mining/tracing
+      
+      - name: Upload bug-mining
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          # Artifact name
+          name: bug-mining
+          # A file, directory or wildcard pattern that describes what to upload
+          path: ./framework/bug-mining
+  build8:
+    continue-on-error: true
+    if: always()
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        bug_ind: [14,15]
+
+
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Run a multi-line script
+        run: |
+          sudo apt update
+          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
+
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: '5.34'
+
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install junitparser
+          pip install networkx
+          pip install pytest 
+          pip install gitpython
+          pip install jira
+          pip install termcolor 
+          pip install openpyxl  
+          pip install javalang
+          pip install pathlib
+          pip install junitparser
+          pip install numpy
+          pip install sklearn
+          pip install pandas
+          pip install pyswarm
+          pip install networkx
+          pip install lizard
+          pip install jsons
+
+
+      - name: Checkout d4j
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/defects4j
+          path: .
+          fetch-depth: 0
+      
+      - name: Checkout javadiff
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/javadiff
+          path: ./framework/bug-mining/tracing/javadiff
+          fetch-depth: 0
+
+      - name: Checkout sfl
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/sfl
+          path: ./framework/bug-mining/tracing/sfl
+          fetch-depth: 0
+
+      - run: cpanm --installdeps .
+      - run: ./init.sh
+
+      - name: get_runner
+        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
+        working-directory: ./framework/bug-mining
+
+      - name: delete repo
+        if: ${{always()}}
+        run: |
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
+            rm -rf ./framework/bug-mining/tracing
+      
+      - name: Upload bug-mining
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          # Artifact name
+          name: bug-mining
+          # A file, directory or wildcard pattern that describes what to upload
+          path: ./framework/bug-mining
+  build9:
+    continue-on-error: true
+    if: always()
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        bug_ind: [16,17]
+
+
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Run a multi-line script
+        run: |
+          sudo apt update
+          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
+
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: '5.34'
+
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install junitparser
+          pip install networkx
+          pip install pytest 
+          pip install gitpython
+          pip install jira
+          pip install termcolor 
+          pip install openpyxl  
+          pip install javalang
+          pip install pathlib
+          pip install junitparser
+          pip install numpy
+          pip install sklearn
+          pip install pandas
+          pip install pyswarm
+          pip install networkx
+          pip install lizard
+          pip install jsons
+
+
+      - name: Checkout d4j
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/defects4j
+          path: .
+          fetch-depth: 0
+      
+      - name: Checkout javadiff
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/javadiff
+          path: ./framework/bug-mining/tracing/javadiff
+          fetch-depth: 0
+
+      - name: Checkout sfl
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/sfl
+          path: ./framework/bug-mining/tracing/sfl
+          fetch-depth: 0
+
+      - run: cpanm --installdeps .
+      - run: ./init.sh
+
+      - name: get_runner
+        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
+        working-directory: ./framework/bug-mining
+
+      - name: delete repo
+        if: ${{always()}}
+        run: |
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
+            rm -rf ./framework/bug-mining/tracing
+      
+      - name: Upload bug-mining
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          # Artifact name
+          name: bug-mining
+          # A file, directory or wildcard pattern that describes what to upload
+          path: ./framework/bug-mining
+  build10:
+    continue-on-error: true
+    if: always()
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        bug_ind: [18,19]
+
+
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Run a multi-line script
+        run: |
+          sudo apt update
+          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
+
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: '5.34'
+
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install junitparser
+          pip install networkx
+          pip install pytest 
+          pip install gitpython
+          pip install jira
+          pip install termcolor 
+          pip install openpyxl  
+          pip install javalang
+          pip install pathlib
+          pip install junitparser
+          pip install numpy
+          pip install sklearn
+          pip install pandas
+          pip install pyswarm
+          pip install networkx
+          pip install lizard
+          pip install jsons
+
+
+      - name: Checkout d4j
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/defects4j
+          path: .
+          fetch-depth: 0
+      
+      - name: Checkout javadiff
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/javadiff
+          path: ./framework/bug-mining/tracing/javadiff
+          fetch-depth: 0
+
+      - name: Checkout sfl
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/sfl
+          path: ./framework/bug-mining/tracing/sfl
+          fetch-depth: 0
+
+      - run: cpanm --installdeps .
+      - run: ./init.sh
+
+      - name: get_runner
+        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
+        working-directory: ./framework/bug-mining
+
+      - name: delete repo
+        if: ${{always()}}
+        run: |
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
+            rm -rf ./framework/bug-mining/tracing
+      
+      - name: Upload bug-mining
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          # Artifact name
+          name: bug-mining
+          # A file, directory or wildcard pattern that describes what to upload
+          path: ./framework/bug-mining
+  build11:
+    continue-on-error: true
+    if: always()
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        bug_ind: [20,21]
+
+
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Run a multi-line script
+        run: |
+          sudo apt update
+          sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat maven
+
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: '5.34'
+
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install junitparser
+          pip install networkx
+          pip install pytest 
+          pip install gitpython
+          pip install jira
+          pip install termcolor 
+          pip install openpyxl  
+          pip install javalang
+          pip install pathlib
+          pip install junitparser
+          pip install numpy
+          pip install sklearn
+          pip install pandas
+          pip install pyswarm
+          pip install networkx
+          pip install lizard
+          pip install jsons
+
+
+      - name: Checkout d4j
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/defects4j
+          path: .
+          fetch-depth: 0
+      
+      - name: Checkout javadiff
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/javadiff
+          path: ./framework/bug-mining/tracing/javadiff
+          fetch-depth: 0
+
+      - name: Checkout sfl
+        uses: actions/checkout@v2
+        with:
+          repository: amir9979/sfl
+          path: ./framework/bug-mining/tracing/sfl
+          fetch-depth: 0
+
+      - run: cpanm --installdeps .
+      - run: ./init.sh
+
+      - name: get_runner
+        run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
+        working-directory: ./framework/bug-mining
+
+      - name: exec
+        if: ${{always()}}
+        run: |
+            chmod +x run.sh
+            ./run.sh
+        working-directory: ./framework/bug-mining
+
+
+      - name: delete repo
+        if: ${{always()}}
+        run: |
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
+            rm -rf ./framework/bug-mining/tracing
+      
+      - name: Upload bug-mining
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          # Artifact name
+          name: bug-mining
+          # A file, directory or wildcard pattern that describes what to upload
+          path: ./framework/bug-mining
