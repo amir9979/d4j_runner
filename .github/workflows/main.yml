@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        bug_ind: [7]
+        bug_ind: [8]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
