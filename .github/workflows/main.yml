@@ -105,7 +105,7 @@ jobs:
             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
-            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/Lang/lib
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/*/lib
             rm -rf ./framework/bug-mining/tracing
       
       - name: Upload bug-mining
