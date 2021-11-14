@@ -103,9 +103,10 @@ jobs:
 
 
       - run: whereis javac
-      - run: printenv JAVAHOME
-      - run: printenv PATH
-      
+      - run: echo $JAVA_HOME
+      - run: echo $PATH
+      - run: rm /usr/bin/javac
+      - run: whereis javac
       - name: exec
         if: ${{always()}}
         run: ./run.sh
