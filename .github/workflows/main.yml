@@ -101,6 +101,11 @@ jobs:
         run: chmod +x run.sh
         working-directory: ./framework/bug-mining
 
+
+      - run: whereis javac
+      - run: printenv JAVAHOME
+      - run: printenv PATH
+      
       - name: exec
         if: ${{always()}}
         run: ./run.sh
