@@ -105,7 +105,7 @@ jobs:
       - run: whereis javac
       - run: echo $JAVA_HOME
       - run: echo $PATH
-      - run: rm /usr/bin/javac
+      - run: sudo rm /usr/bin/javac
       - run: whereis javac
       - name: exec
         if: ${{always()}}
