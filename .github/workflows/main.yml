@@ -126,7 +126,12 @@ jobs:
 
       - name: ant
         if: ${{always()}}
-        run: ant -Dbuild.compiler=javac1.7 compile-tests
+        run: ant -Dbuild.compiler=javac1.8 compile-tests
+        working-directory: ./framework/bug-mining/tracing/compress
+
+      - name: ant
+        if: ${{always()}}
+        run: ant -Dbuild.compiler=javac1.8 test
         working-directory: ./framework/bug-mining/tracing/compress
 
       - name: exec
