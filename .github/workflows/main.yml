@@ -107,6 +107,8 @@ jobs:
       - run: echo $PATH
       - run: sudo rm /usr/bin/javac
       - run: whereis javac
+      - run: mvn -version
+      - run: ant -version
       - name: exec
         if: ${{always()}}
         run: ./run.sh
