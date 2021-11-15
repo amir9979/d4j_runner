@@ -109,6 +109,26 @@ jobs:
       - run: whereis javac
       - run: mvn -version
       - run: ant -version
+
+      - name: Checkout compress
+        uses: actions/checkout@v2
+        with:
+          repository: apache/commons-compress
+          path: ./framework/bug-mining/tracing/compress
+          fetch-depth: 0
+          ref: 40e010931f91f4f2989fc5f892f990a8890808e1
+
+      - name: mvn to ant
+        if: ${{always()}}
+        run: mvn ant:ant -Doverwrite=true 2>&1 -Dhttps.protocols=TLSv1.2 -Dmaven.compile.source=1.8 -Dmaven.compile.target=1.8
+        working-directory: ./framework/bug-mining/tracing/compress
+
+
+      - name: ant
+        if: ${{always()}}
+        run: ant -Dbuild.compiler=javac1.7 compile-tests
+        working-directory: ./framework/bug-mining/tracing/compress
+
       - name: exec
         if: ${{always()}}
         run: ./run.sh
