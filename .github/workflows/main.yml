@@ -119,6 +119,7 @@ jobs:
             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
       
       - name: Upload bug-mining
+        if: ${{always()}}
         uses: actions/upload-artifact@v2
         with:
           # Artifact name
