@@ -75,6 +75,14 @@ jobs:
           path: ./framework/bug-mining/tracing/javadiff
           fetch-depth: 0
 
+      - name: Checkout mvnpy
+        uses: actions/checkout@v2
+        with:
+          repository: rotba/mvnpy
+          path: ./framework/bug-mining/tracing/mvnpy
+          fetch-depth: 0
+          ref: miner_merge
+
       - name: Checkout sfl
         uses: actions/checkout@v2
         with:
