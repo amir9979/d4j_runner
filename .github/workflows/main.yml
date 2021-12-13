@@ -115,7 +115,11 @@ jobs:
             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
             rm -rf ./framework/bug-mining/tracing
 
-      
+      - name: ls
+        run: ls -R
+        working-directory: ./framework/bug-mining
+
+
       - name: Upload bug-mining
         if: ${{always()}}
         uses: actions/upload-artifact@v2
