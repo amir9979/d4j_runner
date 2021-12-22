@@ -113,7 +113,7 @@ jobs:
             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/*/lib
             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
             rm -rf ./framework/bug-mining/tracing
-            # rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
+            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
 
       - name: ls
         if: ${{always()}}
@@ -131,14 +131,14 @@ jobs:
           path: ./framework/bug-mining
 
 
-#       - name: Upload versions
-#         if: ${{always()}}
-#         uses: actions/upload-artifact@v2
-#         with:
-#           # Artifact name
-#           name: versions
-#           # A file, directory or wildcard pattern that describes what to upload
-#           path: /tmp/versions
+      - name: Upload versions
+        if: ${{always()}}
+        uses: actions/upload-artifact@v2
+        with:
+          # Artifact name
+          name: versions
+          # A file, directory or wildcard pattern that describes what to upload
+          path: /tmp/versions
 
       
 #  build1:
