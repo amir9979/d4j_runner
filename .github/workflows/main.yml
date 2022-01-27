@@ -126,9 +126,9 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           # Artifact name
-          name: bug-mining
+          name: framework
           # A file, directory or wildcard pattern that describes what to upload
-          path: ./framework/bug-mining
+          path: ./framework
 
 
 #       - name: Upload versions
