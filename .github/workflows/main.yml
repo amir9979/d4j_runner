@@ -56,6 +56,7 @@ jobs:
           pip install networkx
           pip install lizard
           pip install jsons
+          pip install pydriller
 
 
       - name: Checkout d4j
