@@ -89,7 +89,8 @@ jobs:
           fetch-depth: 0
 
       - run: cpanm --installdeps .
-      - run: ./init.sh
+      
+      # - run: ./init.sh
 
       - name: get_runner
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
