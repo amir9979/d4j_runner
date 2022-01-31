@@ -88,7 +88,7 @@ jobs:
           path: ./framework/bug-mining/tracing/sfl
           fetch-depth: 0
 
-      - run: cpanm --installdeps .
+      # - run: cpanm --installdeps .
       
       # - run: ./init.sh
 
@@ -96,15 +96,15 @@ jobs:
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
         working-directory: ./framework/bug-mining
 
-      - name: chmod
-        if: ${{always()}}
-        run: chmod +x run.sh
-        working-directory: ./framework/bug-mining
+#       - name: chmod
+#         if: ${{always()}}
+#         run: chmod +x run.sh
+#         working-directory: ./framework/bug-mining
 
-      - name: exec
-        if: ${{always()}}
-        run: ./run.sh
-        working-directory: ./framework/bug-mining
+#       - name: exec
+#         if: ${{always()}}
+#         run: ./run.sh
+#         working-directory: ./framework/bug-mining
 
       - name: delete repo
         if: ${{always()}}
