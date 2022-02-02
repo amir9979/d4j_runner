@@ -106,17 +106,17 @@ jobs:
 #         run: ./run.sh
 #         working-directory: ./framework/bug-mining
 
-      - name: delete repo
-        if: ${{always()}}
-        run: |
-            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
-            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
-            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
-            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/*/lib
-            rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
-            rm -rf ./framework/bug-mining/tracing
-            # rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
-            rm -rf ./framework/lib
+#       - name: delete repo
+#         if: ${{always()}}
+#         run: |
+#             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues
+#             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/gitlog
+#             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/issues.txt
+#             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/*/lib
+#             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
+#             rm -rf ./framework/bug-mining/tracing
+#             # rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
+#             rm -rf ./framework/lib
 
       - name: Upload
         if: ${{always()}}
