@@ -89,20 +89,9 @@ jobs:
           path: ./framework/bug-mining/tracing/sfl
           fetch-depth: 0
 
-      - name: ls
-        if: ${{always()}}
-        run: ls -R
-        working-directory: ./framework/bug-mining
-
       - name: get_runner
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
         working-directory: ./framework/bug-mining
-
-      - name: ls
-        if: ${{always()}}
-        run: ls -R
-        working-directory: ./framework/bug-mining
-
 
       - name: delete repo
         if: ${{always()}}
@@ -122,4 +111,4 @@ jobs:
           # Artifact name
           name: framework
           # A file, directory or wildcard pattern that describes what to upload
-          path: .
+          path: ./framework/bug-mining
