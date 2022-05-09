@@ -96,7 +96,7 @@ jobs:
 
       - name: get_runner
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
-        working-directory: ./framework/bug-mining/tracing
+        working-directory: ./framework/bug-mining
 
       - name: ls
         if: ${{always()}}
