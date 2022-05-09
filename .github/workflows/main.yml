@@ -89,9 +89,20 @@ jobs:
           path: ./framework/bug-mining/tracing/sfl
           fetch-depth: 0
 
+      - name: ls
+        if: ${{always()}}
+        run: ls -R
+        working-directory: ./framework/bug-mining
+
       - name: get_runner
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
         working-directory: ./framework/bug-mining/tracing
+
+      - name: ls
+        if: ${{always()}}
+        run: ls -R
+        working-directory: ./framework/bug-mining
+
 
       - name: delete repo
         if: ${{always()}}
@@ -102,7 +113,6 @@ jobs:
             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/projects/*/lib
             rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/project_repos
             rm -rf ./framework/bug-mining/tracing
-            # rm -rf ./framework/bug-mining/bug-mining_${{ matrix.bug_ind}}/framework/core
             rm -rf ./framework/lib
 
       - name: Upload
