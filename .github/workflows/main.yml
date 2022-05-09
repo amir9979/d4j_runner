@@ -65,7 +65,7 @@ jobs:
           repository: amir9979/defects4j
           path: .
           fetch-depth: 0
-          ref: 2cfb9ff31dc80ada9d7da397d3f3dc4c242bff5c
+      - run: git checkout 2cfb9ff31dc80ada9d7da397d3f3dc4c242bff5c
       
       - name: Checkout javadiff
         uses: actions/checkout@v2
