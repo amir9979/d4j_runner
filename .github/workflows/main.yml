@@ -101,6 +101,7 @@ jobs:
             rm -rf ./framework/bug-mining/tracing/sfl
             rm -rf ./framework/bug-mining/tracing/javadiff
             rm -rf ./framework/bug-mining/tracing/mvnpy
+            rm -rf ./framework/bug-mining/tracing
 
       - name: ls
         if: ${{always()}}
