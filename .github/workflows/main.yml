@@ -91,7 +91,7 @@ jobs:
 
       - name: get_runner
         run: python wrapper.py  ${{github.event.issue.title}} bug-mining_${{ matrix.bug_ind }} ${{ matrix.bug_ind }}
-        working-directory: ./framework/bug-mining
+        working-directory: ./framework/bug-mining/tracing
 
       - name: delete repo
         if: ${{always()}}
