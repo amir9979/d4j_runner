@@ -102,6 +102,12 @@ jobs:
             rm -rf ./framework/bug-mining/tracing/javadiff
             rm -rf ./framework/bug-mining/tracing/mvnpy
 
+      - name: ls
+        if: ${{always()}}
+        run: ls -R
+        working-directory: ./framework
+
+
       - name: Upload
         if: ${{always()}}
         uses: actions/upload-artifact@v2
