@@ -96,7 +96,7 @@ jobs:
       - name: delete repo
         if: ${{always()}}
         run: |
-            rm -rf ./framework/bug-mining/traing/bug-mining_${{ matrix.bug_ind}}/framework
+            rm -rf ./framework/bug-mining/tracing/bug-mining_${{ matrix.bug_ind}}/framework
             rm -rf ./framework/bug-mining/tracing/project_repos
             rm -rf ./framework/bug-mining/tracing/sfl
             rm -rf ./framework/bug-mining/tracing/javadiff
