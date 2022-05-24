@@ -63,7 +63,7 @@ jobs:
       - name: Checkout d4j
         uses: actions/checkout@v2
         with:
-          repository: amir9979/defects4j
+          repository: matanhaz/defects4j
           path: .
           fetch-depth: 0
 
