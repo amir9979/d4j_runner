@@ -58,7 +58,7 @@ jobs:
           pip install lizard
           pip install jsons
           pip install pydriller
-
+          pip install PyGithub
 
       - name: Checkout d4j
         uses: actions/checkout@v2
